@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "npm run build", "use": "@vercel/node" }
+    ],
+    "env": {
+        "SECRET":"aditya",
+        "PORT" : 5555,
+        "COOKIE_NAME":"connect.sid"
+    }
+  }
+  
