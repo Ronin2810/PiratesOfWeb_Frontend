@@ -19,7 +19,7 @@ app_router.get('/about',(req,res)=>{
 
 app_router.get('/logout',(req,res)=>{
     console.log("inside logout from app router");
-    axios.get('http://localhost:5000/logout',{params:{isAuth:'true'}})
+    axios.get('https://elitmus1-eu9b.onrender.com/logout',{params:{isAuth:'true'}})
     .then((response)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)
@@ -33,7 +33,7 @@ app_router.get('/logout',(req,res)=>{
 })
 app_router.get('/login',(req,res)=>{
     console.log("inside login from app router");
-    axios.get('http://localhost:5000/logout',{params:{isAuth:'true'}})
+    axios.get('https://elitmus1-eu9b.onrender.com/logout',{params:{isAuth:'true'}})
     .then((response)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)

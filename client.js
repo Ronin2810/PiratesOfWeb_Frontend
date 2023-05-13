@@ -33,6 +33,6 @@ app.use(player_router)
 app.use(admin_router)
 app.use(app_router)
 
-app.listen(process.env.PORT, () => {
+app.listen(5555, () => {
     console.log("Server listening on port 5555... http://localhost:5555");
 })
