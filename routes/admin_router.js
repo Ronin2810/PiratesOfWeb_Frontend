@@ -5,7 +5,7 @@ const axios = require("axios")
 
 admin_router.post('/admin/login',(req,res)=>{
     const {email,password} = req.body;
-    axios.post(`http://localhost:5000/admin/login`,{email:email,password:password})
+    axios.post(`https://pirates-of-web-backend.vercel.app/admin/login`,{email:email,password:password})
     .then((response)=>{
         console.log("Received Response:",response.data);
         if (response.data.res==='OK') {
@@ -27,7 +27,7 @@ admin_router.post('/admin/login',(req,res)=>{
 admin_router.get('/admin/dashboard',(req,res)=>{
     console.log("Response for admin dashboard");
     console.log(req.session.isAuth);
-    axios.get(`http://localhost:5000/admin/dashboard`,{params:{isAuth:req.session.isAuth}})
+    axios.get(`https://pirates-of-web-backend.vercel.app/admin/dashboard`,{params:{isAuth:req.session.isAuth}})
     .then((response)=>{
         if (response.data.res==='OK') {
             console.log("received ok");
@@ -47,7 +47,7 @@ admin_router.get('/admin/dashboard',(req,res)=>{
 
 admin_router.get('/logout',(req,res)=>{
     console.log("inside logout from admin router");
-    axios.get('http://localhost:5000/logout',{params:{isAuth:'true'}})
+    axios.get('https://pirates-of-web-backend.vercel.app/logout',{params:{isAuth:'true'}})
     .then((response)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)
@@ -62,7 +62,7 @@ admin_router.get('/logout',(req,res)=>{
 
 admin_router.get('/login',(req,res)=>{
     console.log("inside login from admin router");
-    axios.get('http://localhost:5000/logout',{params:{isAuth:'true'}})
+    axios.get('https://pirates-of-web-backend.vercel.app/logout',{params:{isAuth:'true'}})
     .then((response)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)
