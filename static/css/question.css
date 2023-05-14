@@ -44,6 +44,11 @@
     border-radius: 25px;
   }
 
+.riddle p{
+  font-size: larger;
+}
+
+
   .go-back-btn {
     /* position: absolute; */
     /* top: 10px;
@@ -63,6 +68,7 @@
 
 .go-back-btn a{
   color: #FFFFFF;
+  font-size: large;
   text-decoration: none;
 }
 
@@ -71,12 +77,14 @@
     /* position: absolute; */
     /* top: 10px;
     right: 10px; */
-    margin-left: 350px;
+    /* font-size: larger; */
+    font-size: 20px;
+    margin-left: 315px;
     background-color: rgb(0, 255, 34);
     color: #fff;
     border: none;
     padding: 10px 20px;
-    font-size: 10px;
+    /* font-size: 10px; */
     border-radius: 4px;
     cursor: pointer;
 }
