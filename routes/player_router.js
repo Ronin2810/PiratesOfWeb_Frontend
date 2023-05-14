@@ -149,7 +149,7 @@ player_router.get('/logout',(req,res)=>{
         console.log(response.data);
         res.clearCookie(process.env.COOKIE_NAME)
         req.session.destroy()
-        res.render('login')
+        res.render('login',{err:""})
     })
     .catch((err)=>{
         console.log(err.message);
@@ -163,7 +163,7 @@ player_router.get('/login',(req,res)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)
         req.session.destroy()
-        res.render('login')
+        res.render('login',{err:""})
     })
     .catch((err)=>{
 
