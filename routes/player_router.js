@@ -46,6 +46,12 @@ player_router.post('/player/login',(req,res)=>{
         else if (response.data.res=="NO"){
             res.render('login',{err:"Wrong Credentials"})
         }
+        else if (response.data.res=="NO1"){
+            res.render('login',{err:"User Doesn't Exist"})
+        }
+        else if (response.data.res=="NO2"){
+            res.render('login',{err:"Wrong Password"})
+        }
     })
     .catch((err)=>{
         res.render('login',{err:"Something Went Wrong"})

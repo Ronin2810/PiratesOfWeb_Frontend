@@ -16,6 +16,12 @@ admin_router.post('/admin/login',(req,res)=>{
             req.session.isAuth=response.data.cookie.isAuth
             res.redirect('/admin/dashboard')
         }
+        else if(response.data.res==="NO1"){
+            res.render('login',{err:"Wrong Email"})
+        }
+        else if(response.data.res==="NO2"){
+            res.render('login',{err:"Wrong Password"})
+        }
         else{
             res.render('login',{err:"Wrong Credentials"})
         }
