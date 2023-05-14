@@ -15,7 +15,7 @@ player_router.post('/register',(req,res)=>{
             res.redirect('/player/dashboard')
         }
         else if (response.data.res=="AR"){
-            res.render('login')
+            res.render('login',{err:"You've Already Registered"})
         }
         else{
             res.render('register')
@@ -38,12 +38,12 @@ player_router.post('/player/login',(req,res)=>{
             console.log("player cookies set in frontend");
             res.redirect('/player/dashboard')
         }
-        else{
-            res.render('login')
+        else if (response.data.res=="NO"){
+            res.render('login',{err:"Wrong Credentials"})
         }
     })
     .catch((err)=>{
-        res.render('login')
+        res.render('login',{err:"Something Went Wrong"})
     })
 })
 player_router.get('/player/dashboard',(req,res)=>{
@@ -101,10 +101,10 @@ player_router.get('/player/riddle/q/:id',(req,res)=>{
             res.render(`q${response.data.question}`,{msg:""});
         }
         else if(response.data.res=="NO"){
-            res.render(`q${response.data.question}`,{msg:""});
+            res.render(`q${response.data.question}`,{msg:"You can't go there yet"});
         }
         else if(response.data.res=="NO1"){
-            res.render(`q${response.data.question}`,{msg:""});
+            res.render(`q${response.data.question}`,{msg:"Something went wrong Try Again"});
         }
         else{
             res.redirect('/logout')

@@ -5,10 +5,6 @@ app_router.get('/',(req,res)=>{
     res.render('index')
 })
 
-// app_router.get('/login',(req,res)=>{
-//     res.render('login')
-// })
-
 app_router.get('/register',(req,res)=>{
     res.render('register')
 })
@@ -24,7 +20,7 @@ app_router.get('/logout',(req,res)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)
         req.session.destroy()
-        res.render('login')
+        res.render('login',{err:""})
     })
     .catch((err)=>{
 
@@ -38,7 +34,7 @@ app_router.get('/login',(req,res)=>{
         console.log(response.data.msg);
         res.clearCookie(process.env.COOKIE_NAME)
         req.session.destroy()
-        res.render('login')
+        res.render('login',{err:""})
     })
     .catch((err)=>{
 
